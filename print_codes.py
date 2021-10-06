@@ -6,8 +6,12 @@ qr = qrcode.QRCode(
     box_size=10,
     border=4,
 )
+
 number = 0
-number_of_mku = 120
+number_of_mku = int(input("Введите трехзначный номер МКУ\n"))
+name_of_folder = 'Codes_for_{}_MKU'.format(number_of_mku)
+way_to_folder = os.path.expanduser("~\\Desktop\\{}\\".format(name_of_folder))
+os.mkdir(way_to_folder)
 
 list_of_info = [f"Перевод кнопок аварийной остановки МКУ (1)    {number_of_mku}",
                 f"Перевод кнопок аварийной остановки МКУ (2)    {number_of_mku}",
@@ -83,11 +87,10 @@ for data in list_of_info:
     try:
         current_text = list_of_info[number]
         current_name = list_of_names[number]
-        folder = 'C:\\Users\\eremenkoas\\Desktop\\Коды'
         qr.add_data(current_text)
         qr.make(fit=True)
         img = qr.make_image()
-        path = os.path.join(folder, '{}.jpg'.format(current_name))
+        path = os.path.join(way_to_folder, '{}.jpg'.format(current_name))
         img.save(path)
         number += 1
     except qrcode.exceptions.DataOverflowError:
