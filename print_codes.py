@@ -3,7 +3,6 @@ import os
 
 qr = qrcode.QRCode(
     version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_H,
     box_size=10,
     border=4,
 )
@@ -81,12 +80,18 @@ list_of_names = ['левый_1',
                  'обход-проверка']
 
 for data in list_of_info:
-    current_text = list_of_info[number]
-    current_name = list_of_names[number]
-    folder = 'C:\\Users\\eremenkoas\\Desktop\\Коды'
-    qr.add_data(current_text)
-    qr.make(fit=True)
-    img = qr.make_image()
-    path = os.path.join(folder, '{}.jpg'.format(current_name))
-    img.save(path)
-    number += 1
+    try:
+        current_text = list_of_info[number]
+        current_name = list_of_names[number]
+        folder = 'C:\\Users\\eremenkoas\\Desktop\\Коды'
+        qr.add_data(current_text)
+        qr.make(fit=True)
+        img = qr.make_image()
+        path = os.path.join(folder, '{}.jpg'.format(current_name))
+        img.save(path)
+        number += 1
+    except qrcode.exceptions.DataOverflowError:
+        pass
+    except ValueError:
+        pass
+
