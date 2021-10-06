@@ -1,2 +1,5 @@
 # Nastya_hello
-The first step in working with Git
+
+Hello everyone! 
+I'm learning to work in GitHub.
+I'm creating a program to generate codes in first project.
