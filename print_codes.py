@@ -9,7 +9,7 @@ qr = qrcode.QRCode(
 )
 number = 0
 number_of_mku = 133
-print("Some text")
+
 list_of_info = [f"Перевод кнопок аварийной остановки МКУ (1)    {number_of_mku}",
                 f"Перевод кнопок аварийной остановки МКУ (2)    {number_of_mku}",
                 f"Перевод кнопок аварийной остановки МКУ (3)    {number_of_mku}",
