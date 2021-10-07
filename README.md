@@ -1,4 +1,4 @@
-# Nastya_hello
+# Print codes
 
 Hello everyone! 
 I'm learning to work in GitHub.
